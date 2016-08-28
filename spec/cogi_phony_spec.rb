@@ -312,4 +312,46 @@ describe CogiPhony do
       expect(CogiPhony.phone_to_provider('+14037089189')).to eq('Others')
     end
   end
+
+  describe '#vn_mobile_phone?' do
+    context 'Mobile phone in Vietnam' do
+      it 'begin with 8 and length is 10 return true' do
+        expect(CogiPhony.vn_mobile_phone?('0883081090')).to eq(true)
+        expect(CogiPhony.vn_mobile_phone?('84883081090')).to eq(true)
+        expect(CogiPhony.vn_mobile_phone?('+84883081090')).to eq(true)
+      end
+
+      it 'begin with 9 and length is 10 return true' do
+        expect(CogiPhony.vn_mobile_phone?('0933081090')).to eq(true)
+        expect(CogiPhony.vn_mobile_phone?('84933081090')).to eq(true)
+        expect(CogiPhony.vn_mobile_phone?('+84933081090')).to eq(true)
+      end
+
+      it 'begin with 1 and length is 11 return true' do
+        expect(CogiPhony.vn_mobile_phone?('01214468866')).to eq(true)
+        expect(CogiPhony.vn_mobile_phone?('841214468866')).to eq(true)
+        expect(CogiPhony.vn_mobile_phone?('+841214468866')).to eq(true)
+      end
+
+      it 'does not a valid mobile phone format' do
+        expect(CogiPhony.vn_mobile_phone?('09330810900')).to eq(false)
+        expect(CogiPhony.vn_mobile_phone?('012144688666')).to eq(false)
+        expect(CogiPhony.vn_mobile_phone?('0933081090a')).to eq(false)
+        expect(CogiPhony.vn_mobile_phone?('093308109-0')).to eq(false)
+        expect(CogiPhony.vn_mobile_phone?('+14037089189')).to eq(false)
+      end
+    end
+
+    context 'Land line in Vietnam' do
+      it 'return false' do
+        expect(CogiPhony.vn_mobile_phone?('0643893907')).to eq(false)
+      end
+    end
+
+    context 'Foreign mobile phone' do
+      it 'return false' do
+        expect(CogiPhony.vn_mobile_phone?('+14037089189')).to eq(false)
+      end
+    end
+  end
 end
