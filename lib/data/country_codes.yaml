@@ -1,0 +1,970 @@
+#
+# List of country codes and country names.
+#
+# Reference: https://countrycode.org/
+#
+---
+countries:
+  AF:
+    country_code:  "93"
+    name:   "Afghanistan"
+
+  AL:
+    country_code:  "355"
+    name:   "Albania"
+
+  DZ:
+    country_code:  "213"
+    name:   "Algeria"
+
+  AS:
+    country_code:  "1-684"
+    name:   "American Samoa"
+
+  AD:
+    country_code:  "376"
+    name:   "Andorra"
+
+  AO:
+    country_code:  "244"
+    name:   "Angola"
+
+  AI:
+    country_code:  "1-264"
+    name:   "Anguilla"
+
+  AQ:
+    country_code:  "672"
+    name:   "Antarctica"
+
+  AG:
+    country_code:  "1-268"
+    name:   "Antigua And Barbuda"
+
+  AR:
+    country_code:  "54"
+    name:   "Argentina"
+
+  AM:
+    country_code:  "374"
+    name:   "Armenia"
+
+  AW:
+    country_code:  "297"
+    name:   "Aruba"
+
+  AU:
+    country_code:  "61"
+    name:   "Australia"
+
+  AT:
+    country_code:  "43"
+    name:   "Austria"
+
+  AZ:
+    country_code:  "994"
+    name:   "Azerbaijan"
+
+  BS:
+    country_code:  "1-242"
+    name:   "Bahamas"
+
+  BH:
+    country_code:  "973"
+    name:   "Bahrain"
+
+  BD:
+    country_code:  "880"
+    name:   "Bangladesh"
+
+  BB:
+    country_code:  "1-246"
+    name:   "Barbados"
+
+  BY:
+    country_code:  "375"
+    name:   "Belarus"
+
+  BE:
+    country_code:  "32"
+    name:   "Belgium"
+
+  BZ:
+    country_code:  "501"
+    name:   "Belize"
+
+  BJ:
+    country_code:  "229"
+    name:   "Benin"
+
+  BM:
+    country_code:  "1-441"
+    name:   "Bermuda"
+
+  BT:
+    country_code:  "975"
+    name:   "Bhutan"
+
+  BO:
+    country_code:  "591"
+    name:   "Bolivia"
+
+  BA:
+    country_code:  "387"
+    name:   "Bosnia And Herzegovina"
+
+  BW:
+    country_code:  "267"
+    name:   "Botswana"
+
+  BV:
+    country_code:  "BV"
+    name:   "Bouvet Island"
+
+  BR:
+    country_code:  "55"
+    name:   "Brazil"
+
+  IO:
+    country_code:  "246"
+    name:   "British Indian Ocean Territory"
+
+  BN:
+    country_code:  "673"
+    name:   "Brunei"
+
+  BG:
+    country_code:  "359"
+    name:   "Bulgaria"
+
+  BF:
+    country_code:  "226"
+    name:   "Burkina Faso"
+
+  BI:
+    country_code:  "257"
+    name:   "Burundi"
+
+  KH:
+    country_code:  "855"
+    name:   "Cambodia"
+
+  CM:
+    country_code:  "237"
+    name:   "Cameroon"
+
+  CA:
+    country_code:  "1"
+    name:   "Canada"
+
+  CV:
+    country_code:  "238"
+    name:   "Cape Verde"
+
+  KY:
+    country_code:  "1-345"
+    name:   "Cayman Islands"
+
+  CF:
+    country_code:  "236"
+    name:   "Central African Republic"
+
+  TD:
+    country_code:  "235"
+    name:   "Chad"
+
+  CL:
+    country_code:  "56"
+    name:   "Chile"
+
+  CN:
+    country_code:  "86"
+    name:   "China"
+
+  CX:
+    country_code:  "61"
+    name:   "Christmas Island"
+
+  CC:
+    country_code:  "61"
+    name:   "Cocos (keeling) Islands"
+
+  CO:
+    country_code:  "57"
+    name:   "Colombia"
+
+  KM:
+    country_code:  "KM"
+    name:   "Comoros"
+
+  CG:
+    country_code:  "CG"
+    name:   "Congo"
+
+  CD:
+    country_code:  "243"
+    name:   "Congo, The Democratic Republic Of The"
+
+  CK:
+    country_code:  "682"
+    name:   "Cook Islands"
+
+  CR:
+    country_code:  "506"
+    name:   "Costa Rica"
+
+  CI:
+    country_code:  "CI"
+    name:   "Cote D'ivoire"
+
+  HR:
+    country_code:  "385"
+    name:   "Croatia"
+
+  CU:
+    country_code:  "53"
+    name:   "Cuba"
+
+  CY:
+    country_code:  "357"
+    name:   "Cyprus"
+
+  CZ:
+    country_code:  "420"
+    name:   "Czech Republic"
+
+  DK:
+    country_code:  "45"
+    name:   "Denmark"
+
+  DJ:
+    country_code:  "253"
+    name:   "Djibouti"
+
+  DM:
+    country_code:  "1-767"
+    name:   "Dominica"
+
+  DO:
+    country_code:  "1-809"
+    name:   "Dominican Republic"
+
+  TP:
+    country_code:  "TP"
+    name:   "East Timor"
+
+  EC:
+    country_code:  "593"
+    name:   "Ecuador"
+
+  EG:
+    country_code:  "20"
+    name:   "Egypt"
+
+  SV:
+    country_code:  "503"
+    name:   "El Salvador"
+
+  GQ:
+    country_code:  "240"
+    name:   "Equatorial Guinea"
+
+  ER:
+    country_code:  "291"
+    name:   "Eritrea"
+
+  EE:
+    country_code:  "372"
+    name:   "Estonia"
+
+  ET:
+    country_code:  "251"
+    name:   "Ethiopia"
+
+  FK:
+    country_code:  "500"
+    name:   "Falkland Islands (malvinas)"
+
+  FO:
+    country_code:  "298"
+    name:   "Faroe Islands"
+
+  FJ:
+    country_code:  "679"
+    name:   "Fiji"
+
+  FI:
+    country_code:  "358"
+    name:   "Finland"
+
+  FR:
+    country_code:  "33"
+    name:   "France"
+
+  GF:
+    country_code:  "GF"
+    name:   "French Guiana"
+
+  PF:
+    country_code:  "689"
+    name:   "French Polynesia"
+
+  TF:
+    country_code:  "TF"
+    name:   "French Southern Territories"
+
+  GA:
+    country_code:  "241"
+    name:   "Gabon"
+
+  GM:
+    country_code:  "220"
+    name:   "Gambia"
+
+  GE:
+    country_code:  "955"
+    name:   "Georgia"
+
+  DE:
+    country_code:  "49"
+    name:   "Germany"
+
+  GH:
+    country_code:  "233"
+    name:   "Ghana"
+
+  GI:
+    country_code:  "350"
+    name:   "Gibraltar"
+
+  GR:
+    country_code:  "30"
+    name:   "Greece"
+
+  GL:
+    country_code:  "299"
+    name:   "Greenland"
+
+  GD:
+    country_code:  "1-473"
+    name:   "Grenada"
+
+  GP:
+    country_code:  "GP"
+    name:   "Guadeloupe"
+
+  GU:
+    country_code:  "1-671"
+    name:   "Guam"
+
+  GT:
+    country_code:  "502"
+    name:   "Guatemala"
+
+  GN:
+    country_code:  "224"
+    name:   "Guinea"
+
+  GW:
+    country_code:  "245"
+    name:   "Guinea-bissau"
+
+  GY:
+    country_code:  "592"
+    name:   "Guyana"
+
+  HT:
+    country_code:  "509"
+    name:   "Haiti"
+
+  HM:
+    country_code:  "HM"
+    name:   "Heard Island And Mcdonald Islands"
+
+  HN:
+    country_code:  "504"
+    name:   "Honduras"
+
+  HK:
+    country_code:  "852"
+    name:   "Hong Kong"
+
+  HU:
+    country_code:  "36"
+    name:   "Hungary"
+
+  IS:
+    country_code:  "354"
+    name:   "Iceland"
+
+  IN:
+    country_code:  "91"
+    name:   "India"
+
+  ID:
+    country_code:  "62"
+    name:   "Indonesia"
+
+  IR:
+    country_code:  "98"
+    name:   "Iran, Islamic Republic Of"
+
+  IQ:
+    country_code:  "964"
+    name:   "Iraq"
+
+  IE:
+    country_code:  "353"
+    name:   "Ireland"
+
+  IL:
+    country_code:  "972"
+    name:   "Israel"
+
+  IT:
+    country_code:  "39"
+    name:   "Italy"
+
+  JM:
+    country_code:  "1-876"
+    name:   "Jamaica"
+
+  JP:
+    country_code:  "81"
+    name:   "Japan"
+
+  JO:
+    country_code:  "962"
+    name:   "Jordan"
+
+  KZ:
+    country_code:  "7"
+    name:   "Kazakstan"
+
+  KE:
+    country_code:  "254"
+    name:   "Kenya"
+
+  KI:
+    country_code:  "686"
+    name:   "Kiribati"
+
+  KP:
+    country_code:  "KP"
+    name:   "Korea, Democratic People's Republic Of"
+
+  KR:
+    country_code:  "KR"
+    name:   "Korea, Republic Of"
+
+  KV:
+    country_code:  "KV"
+    name:   "Kosovo"
+
+  KW:
+    country_code:  "965"
+    name:   "Kuwait"
+
+  KG:
+    country_code:  "996"
+    name:   "Kyrgyzstan"
+
+  LA:
+    country_code:  "856"
+    name:   "Lao People's Democratic Republic"
+
+  LV:
+    country_code:  "371"
+    name:   "Latvia"
+
+  LB:
+    country_code:  "961"
+    name:   "Lebanon"
+
+  LS:
+    country_code:  "266"
+    name:   "Lesotho"
+
+  LR:
+    country_code:  "231"
+    name:   "Liberia"
+
+  LY:
+    country_code:  "218"
+    name:   "Libyan Arab Jamahiriya"
+
+  LI:
+    country_code:  "423"
+    name:   "Liechtenstein"
+
+  LT:
+    country_code:  "370"
+    name:   "Lithuania"
+
+  LU:
+    country_code:  "352"
+    name:   "Luxembourg"
+
+  MO:
+    country_code:  "853"
+    name:   "Macau"
+
+  MK:
+    country_code:  "389"
+    name:   "Macedonia, The Former Yugoslav Republic Of"
+
+  MG:
+    country_code:  "261"
+    name:   "Madagascar"
+
+  MW:
+    country_code:  "265"
+    name:   "Malawi"
+
+  MY:
+    country_code:  "60"
+    name:   "Malaysia"
+
+  MV:
+    country_code:  "960"
+    name:   "Maldives"
+
+  ML:
+    country_code:  "223"
+    name:   "Mali"
+
+  MT:
+    country_code:  "356"
+    name:   "Malta"
+
+  MH:
+    country_code:  "692"
+    name:   "Marshall Islands"
+
+  MQ:
+    country_code:  "MQ"
+    name:   "Martinique"
+
+  MR:
+    country_code:  "222"
+    name:   "Mauritania"
+
+  MU:
+    country_code:  "230"
+    name:   "Mauritius"
+
+  YT:
+    country_code:  "262"
+    name:   "Mayotte"
+
+  MX:
+    country_code:  "52"
+    name:   "Mexico"
+
+  FM:
+    country_code:  "691"
+    name:   "Micronesia, Federated States Of"
+
+  MD:
+    country_code:  "373"
+    name:   "Moldova, Republic Of"
+
+  MC:
+    country_code:  "377"
+    name:   "Monaco"
+
+  MN:
+    country_code:  "976"
+    name:   "Mongolia"
+
+  MS:
+    country_code:  "1-664"
+    name:   "Montserrat"
+
+  ME:
+    country_code:  "382"
+    name:   "Montenegro"
+
+  MA:
+    country_code:  "212"
+    name:   "Morocco"
+
+  MZ:
+    country_code:  "258"
+    name:   "Mozambique"
+
+  MM:
+    country_code:  "95"
+    name:   "Myanmar"
+
+  NA:
+    country_code:  "264"
+    name:   "Namibia"
+
+  NR:
+    country_code:  "674"
+    name:   "Nauru"
+
+  NP:
+    country_code:  "977"
+    name:   "Nepal"
+
+  NL:
+    country_code:  "31"
+    name:   "Netherlands"
+
+  AN:
+    country_code:  "599"
+    name:   "Netherlands Antilles"
+
+  NC:
+    country_code:  "687"
+    name:   "New Caledonia"
+
+  NZ:
+    country_code:  "64"
+    name:   "New Zealand"
+
+  NI:
+    country_code:  "505"
+    name:   "Nicaragua"
+
+  NE:
+    country_code:  "227"
+    name:   "Niger"
+
+  NG:
+    country_code:  "234"
+    name:   "Nigeria"
+
+  NU:
+    country_code:  "683"
+    name:   "Niue"
+
+  NF:
+    country_code:  "NF"
+    name:   "Norfolk Island"
+
+  MP:
+    country_code:  "1-670"
+    name:   "Northern Mariana Islands"
+
+  NO:
+    country_code:  "47"
+    name:   "Norway"
+
+  OM:
+    country_code:  "968"
+    name:   "Oman"
+
+  PK:
+    country_code:  "92"
+    name:   "Pakistan"
+
+  PW:
+    country_code:  "680"
+    name:   "Palau"
+
+  PS:
+    country_code:  "970"
+    name:   "Palestinian Territory, Occupied"
+
+  PA:
+    country_code:  "507"
+    name:   "Panama"
+
+  PG:
+    country_code:  "675"
+    name:   "Papua New Guinea"
+
+  PY:
+    country_code:  "595"
+    name:   "Paraguay"
+
+  PE:
+    country_code:  "51"
+    name:   "Peru"
+
+  PH:
+    country_code:  "63"
+    name:   "Philippines"
+
+  PN:
+    country_code:  "64"
+    name:   "Pitcairn"
+
+  PL:
+    country_code:  "48"
+    name:   "Poland"
+
+  PT:
+    country_code:  "351"
+    name:   "Portugal"
+
+  PR:
+    country_code:  "1-787"
+    name:   "Puerto Rico"
+
+  QA:
+    country_code:  "974"
+    name:   "Qatar"
+
+  RE:
+    country_code:  "262"
+    name:   "Reunion"
+
+  RO:
+    country_code:  "40"
+    name:   "Romania"
+
+  RU:
+    country_code:  "7"
+    name:   "Russian Federation"
+
+  RW:
+    country_code:  "250"
+    name:   "Rwanda"
+
+  SH:
+    country_code:  "290"
+    name:   "Saint Helena"
+
+  KN:
+    country_code:  "1-869"
+    name:   "Saint Kitts And Nevis"
+
+  LC:
+    country_code:  "1-758"
+    name:   "Saint Lucia"
+
+  PM:
+    country_code:  "508"
+    name:   "Saint Pierre And Miquelon"
+
+  VC:
+    country_code:  "1-784"
+    name:   "Saint Vincent And The Grenadines"
+
+  WS:
+    country_code:  "685"
+    name:   "Samoa"
+
+  SM:
+    country_code:  "378"
+    name:   "San Marino"
+
+  ST:
+    country_code:  "239"
+    name:   "Sao Tome And Principe"
+
+  SA:
+    country_code:  "966"
+    name:   "Saudi Arabia"
+
+  SN:
+    country_code:  "221"
+    name:   "Senegal"
+
+  RS:
+    country_code:  "381"
+    name:   "Serbia"
+
+  SC:
+    country_code:  "248"
+    name:   "Seychelles"
+
+  SL:
+    country_code:  "232"
+    name:   "Sierra Leone"
+
+  SG:
+    country_code:  "65"
+    name:   "Singapore"
+
+  SK:
+    country_code:  "421"
+    name:   "Slovakia"
+
+  SI:
+    country_code:  "386"
+    name:   "Slovenia"
+
+  SB:
+    country_code:  "677"
+    name:   "Solomon Islands"
+
+  SO:
+    country_code:  "252"
+    name:   "Somalia"
+
+  ZA:
+    country_code:  "27"
+    name:   "South Africa"
+
+  GS:
+    country_code:  "GS"
+    name:   "South Georgia And The South Sandwich Islands"
+
+  ES:
+    country_code:  "34"
+    name:   "Spain"
+
+  LK:
+    country_code:  "94"
+    name:   "Sri Lanka"
+
+  SD:
+    country_code:  "249"
+    name:   "Sudan"
+
+  SR:
+    country_code:  "597"
+    name:   "Suriname"
+
+  SJ:
+    country_code:  "47"
+    name:   "Svalbard And Jan Mayen"
+
+  SZ:
+    country_code:  "268"
+    name:   "Swaziland"
+
+  SE:
+    country_code:  "46"
+    name:   "Sweden"
+
+  CH:
+    country_code:  "41"
+    name:   "Switzerland"
+
+  SY:
+    country_code:  "963"
+    name:   "Syrian Arab Republic"
+
+  TW:
+    country_code:  "886"
+    name:   "Taiwan, Province Of China"
+
+  TJ:
+    country_code:  "992"
+    name:   "Tajikistan"
+
+  TZ:
+    country_code:  "255"
+    name:   "Tanzania, United Republic Of"
+
+  TH:
+    country_code:  "66"
+    name:   "Thailand"
+
+  TG:
+    country_code:  "228"
+    name:   "Togo"
+
+  TK:
+    country_code:  "690"
+    name:   "Tokelau"
+
+  TO:
+    country_code:  "676"
+    name:   "Tonga"
+
+  TT:
+    country_code:  "1-868"
+    name:   "Trinidad And Tobago"
+
+  TN:
+    country_code:  "216"
+    name:   "Tunisia"
+
+  TR:
+    country_code:  "90"
+    name:   "Turkey"
+
+  TM:
+    country_code:  "993"
+    name:   "Turkmenistan"
+
+  TC:
+    country_code:  "1-649"
+    name:   "Turks And Caicos Islands"
+
+  TV:
+    country_code:  "688"
+    name:   "Tuvalu"
+
+  VI:
+    country_code:  "1-340"
+    name:   "Virgin Islands, U.s."
+
+  UG:
+    country_code:  "256"
+    name:   "Uganda"
+
+  UA:
+    country_code:  "380"
+    name:   "Ukraine"
+
+  AE:
+    country_code:  "971"
+    name:   "United Arab Emirates"
+
+  GB:
+    country_code:  "44"
+    name:   "United Kingdom"
+
+  US:
+    country_code:  "1"
+    name:   "United States"
+
+  # UM:
+  #   country_code:  "UM"
+  #   name:   "United States Minor Outlying Islands"
+
+  UY:
+    country_code:  "598"
+    name:   "Uruguay"
+
+  UZ:
+    country_code:  "998"
+    name:   "Uzbekistan"
+
+  VU:
+    country_code:  "678"
+    name:   "Vanuatu"
+
+  VA:
+    country_code: "379"
+    name: "Vatican"
+
+  VE:
+    country_code:  "58"
+    name:   "Venezuela"
+
+  VN:
+    country_code:  "84"
+    name:   "Viet Nam"
+
+  # VG:
+  #   country_code:  "VG"
+  #   name:   "Virgin Islands, British"
+
+  WF:
+    country_code:  "681"
+    name:   "Wallis And Futuna"
+
+  EH:
+    country_code:  "212"
+    name:   "Western Sahara"
+
+  YE:
+    country_code:  "967"
+    name:   "Yemen"
+
+  ZM:
+    country_code:  "260"
+    name:   "Zambia"
+
+  ZW:
+    country_code:  "263"
+    name:   "Zimbabwe"
