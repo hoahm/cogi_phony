@@ -9,4 +9,33 @@ module CogiPhony
   def self.country_codes_hash
     @country_codes_hash ||= YAML.load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'data/country_codes.yaml'))
   end
+
+  def self.mobile_networks_hash
+    @mobile_networks_hash ||= YAML.load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'data/mobile_networks.yaml'))
+  end
+
+  def self.gmobile?(phone)
+    pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['gmobile']})\d{7}$/
+    pattern.match phone
+  end
+
+  def self.vietnamobile?(phone)
+    pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['vietnamobile']})\d{7}$/
+    pattern.match phone
+  end
+
+  def self.mobifone?(phone)
+    pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['mobifone']})\d{7}$/
+    pattern.match phone
+  end
+
+  def self.vinaphone?(phone)
+    pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['vinaphone']})\d{7}$/
+    pattern.match phone
+  end
+
+  def self.viettel?(phone)
+    pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['viettel']})\d{7}$/
+    pattern.match phone
+  end
 end
