@@ -274,4 +274,42 @@ describe CogiPhony do
       end
     end
   end
+
+  describe '#phone_to_provider' do
+    it 'return Viettel' do
+      expect(CogiPhony.phone_to_provider('0988091097')).to eq('Viettel')
+      expect(CogiPhony.phone_to_provider('84988091097')).to eq('Viettel')
+      expect(CogiPhony.phone_to_provider('+84988091097')).to eq('Viettel')
+    end
+
+    it 'return Mobifone' do
+      expect(CogiPhony.phone_to_provider('0938091097')).to eq('Mobifone')
+      expect(CogiPhony.phone_to_provider('84938091097')).to eq('Mobifone')
+      expect(CogiPhony.phone_to_provider('+84938091097')).to eq('Mobifone')
+    end
+
+    it 'return Vinaphone' do
+      expect(CogiPhony.phone_to_provider('0918091097')).to eq('Vinaphone')
+      expect(CogiPhony.phone_to_provider('84918091097')).to eq('Vinaphone')
+      expect(CogiPhony.phone_to_provider('+84918091097')).to eq('Vinaphone')
+    end
+
+    it 'return Vietnamobile' do
+      expect(CogiPhony.phone_to_provider('0928091097')).to eq('Vietnamobile')
+      expect(CogiPhony.phone_to_provider('84928091097')).to eq('Vietnamobile')
+      expect(CogiPhony.phone_to_provider('+84928091097')).to eq('Vietnamobile')
+    end
+
+    it 'return Gmobile (Beeline)' do
+      expect(CogiPhony.phone_to_provider('0998091097')).to eq('Gmobile (Beeline)')
+      expect(CogiPhony.phone_to_provider('84998091097')).to eq('Gmobile (Beeline)')
+      expect(CogiPhony.phone_to_provider('+84998091097')).to eq('Gmobile (Beeline)')
+    end
+
+    it 'return Others' do
+      expect(CogiPhony.phone_to_provider('0837621351')).to eq('Others')
+      expect(CogiPhony.phone_to_provider('0643676907')).to eq('Others')
+      expect(CogiPhony.phone_to_provider('+14037089189')).to eq('Others')
+    end
+  end
 end

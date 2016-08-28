@@ -38,4 +38,13 @@ module CogiPhony
     pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['viettel']})\d{7}$/
     pattern.match phone
   end
+
+  def self.phone_to_provider(phone)
+    return 'Viettel' if self.viettel? phone
+    return 'Mobifone' if self.mobifone? phone
+    return 'Vinaphone' if self.vinaphone? phone
+    return 'Vietnamobile' if self.vietnamobile? phone
+    return 'Gmobile (Beeline)' if self.gmobile? phone
+    'Others'
+  end
 end
