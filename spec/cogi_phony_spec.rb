@@ -354,4 +354,66 @@ describe CogiPhony do
       end
     end
   end
+
+  describe '#global_format' do
+    context 'with country code' do
+      it 'format vietnam mobile phone number without plus sign' do
+        expect(CogiPhony.global_format('84933081090')).to eq('+84 93 3081090')
+      end
+
+      it 'format vietnam phone number without plus sign' do
+        expect(CogiPhony.global_format('84837621350')).to eq('+84 8 3762 1350')
+      end
+
+      it 'format international mobile phone number without plus sign' do
+        expect(CogiPhony.global_format('14037089189')).to eq('+1 (403) 708-9189')
+      end
+
+      it 'format vietnam mobile phone number with plus sign' do
+        expect(CogiPhony.global_format('+84933081090')).to eq('+84933081090')
+      end
+    end
+
+    context 'without country code' do
+      it 'return raw phone number' do
+        expect(CogiPhony.global_format('0933081090')).to eq('0933081090')
+      end
+    end
+  end
+
+  describe '#national_format' do
+    it 'format mobile phone number' do
+      expect(CogiPhony.national_format('84933081090')).to eq('093 3081090')
+    end
+
+    it 'format phone number' do
+      expect(CogiPhony.national_format('84837621350')).to eq('08 3762 1350')
+    end
+  end
+
+  describe '#format' do
+    context 'global format' do
+      it 'format vietnam mobile phone number without specify format' do
+        expect(CogiPhony.format('84933081090')).to eq('+84 93 3081090')
+      end
+
+      it 'format vietnam mobile phone number' do
+        expect(CogiPhony.format('84933081090', format: 'global')).to eq('+84 93 3081090')
+      end
+
+      it 'format vietnam phone number' do
+        expect(CogiPhony.format('84837621350', format: 'global')).to eq('+84 8 3762 1350')
+      end
+    end
+
+    context 'vietnam format' do
+      it 'format vietnam mobile phone number' do
+        expect(CogiPhony.format('84933081090', format: 'vietnam')).to eq('093 3081090')
+      end
+
+      it 'format vietnam phone number' do
+        expect(CogiPhony.format('84837621350', format: 'vietnam')).to eq('08 3762 1350')
+      end
+    end
+  end
 end

@@ -1,4 +1,5 @@
 require 'cogi_phony/version'
+require 'phony'
 require 'yaml'
 
 module CogiPhony
@@ -58,5 +59,46 @@ module CogiPhony
     return false if phone.nil? || phone.empty?
     return false if /\A(\+84|84|0)(((8|9)\d{8})|(1\d{9}))$/.match(phone).nil?
     true
+  end
+
+  # Format formats phone numbers according to the predominant format of a country.
+  #
+  # Params:
+  #   format: global or vietnam. Default is global
+  #
+  # Example:
+  #   CogiPhony.format('84933081090') ==> '+84 93 3081090'
+  #   CogiPhony.format('84933081090', format: 'global') ==> '+84 93 3081090'
+  #   CogiPhony.format('84837621350', format: 'global') ==> '+84 8 3762 1350'
+  #   CogiPhony.format('84933081090', format: 'vietnam') ==> '093 3081090'
+  #   CogiPhony.format('84837621350', format: 'vietnam') ==> '08 3762 1350'
+  def self.format(phone, options = {})
+    return nil if phone.nil?
+
+    phone = phone.gsub(/\D/, '')
+    format = options[:format] || 'global'
+    formatted_phone = format == 'global' ? self.global_format(phone) : self.national_format(phone)
+    formatted_phone
+  end
+
+  # Format phone number into international format.
+  # If missing country code, it will return the raw number.
+  #
+  # Example:
+  #   CogiPhony.global_format('84933081090') ==> '+84 93 3081090'
+  #   CogiPhony.global_format('84837621350') ==> '+84 8 3762 1350'
+  #   CogiPhony.global_format('0933081090')  ==> '0933081090'
+  def self.global_format(phone)
+    Phony.format(phone, format: :international) rescue phone
+  end
+
+  # Format phone number into national format.
+  # If missing country code, it will return the raw number.
+  #
+  # Example:
+  #   CogiPhony.national_format('84933081090') ==> '093 3081090'
+  #   CogiPhony.national_format('84837621350') ==> '08 3762 1350'
+  def self.national_format(phone)
+    Phony.format(phone, format: :national) rescue phone
   end
 end
