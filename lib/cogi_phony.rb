@@ -101,4 +101,14 @@ module CogiPhony
   def self.national_format(phone)
     Phony.format(phone, format: :national) rescue phone
   end
+
+  # Return country code from phone number
+  #
+  # Example:
+  #   CogiPhony.country_code_from_number('84933081090') ==> '84'
+  #   CogiPhony.country_code_from_number('0933081090')  ==> nil
+  def self.country_code_from_number(phone)
+    return nil unless Phony.plausible?(phone)
+    Phony.split(Phony.normalize(phone)).first
+  end
 end

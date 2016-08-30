@@ -416,4 +416,15 @@ describe CogiPhony do
       end
     end
   end
+
+  describe '#country_code_from_number' do
+    it 'return country code' do
+      expect(CogiPhony.country_code_from_number('+84933081090')).to eq('84')
+      expect(CogiPhony.country_code_from_number('84933081090')).to eq('84')
+    end
+
+    it 'return nil' do
+      expect(CogiPhony.country_code_from_number('0933081090')).to be_nil
+    end
+  end
 end
