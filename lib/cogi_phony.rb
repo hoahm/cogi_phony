@@ -112,7 +112,7 @@ module CogiPhony
   #   CogiPhony.vn_mobile_phone?('84837621350')    # => false
   def self.vn_mobile_phone?(phone)
     return false if phone.nil? || phone.empty?
-    return false if /\A(\+84|84|0)(((8|9)\d{8})|(1\d{9}))$/.match(phone).nil?
+    return false if /\A(\+84|84|0)((9\d{8})|(88\d{7})|(1\d{9}))$/.match(phone).nil?
     true
   end
 

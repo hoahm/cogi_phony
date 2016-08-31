@@ -315,10 +315,14 @@ describe CogiPhony do
 
   describe '#vn_mobile_phone?' do
     context 'Mobile phone in Vietnam' do
-      it 'begin with 8 and length is 10 return true' do
+      it 'begin with 88 and length is 10 return true' do
         expect(CogiPhony.vn_mobile_phone?('0883081090')).to eq(true)
         expect(CogiPhony.vn_mobile_phone?('84883081090')).to eq(true)
         expect(CogiPhony.vn_mobile_phone?('+84883081090')).to eq(true)
+      end
+
+      it 'begin with 8 but is not mobile phone' do
+        expect(CogiPhony.vn_mobile_phone?('84837621350')).to eq(false)
       end
 
       it 'begin with 9 and length is 10 return true' do
