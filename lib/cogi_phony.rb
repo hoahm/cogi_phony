@@ -12,35 +12,77 @@ module CogiPhony
     @country_codes_hash ||= YAML.load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'data/country_codes.yaml'))
   end
 
+  # Return a Hash of mobile networks
+  #
+  #
+  # @return [Hash]
   def self.mobile_networks_hash
     @mobile_networks_hash ||= YAML.load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'data/mobile_networks.yaml'))
   end
 
+  # Check if a phone number is provided by Gmobile
+  #
+  # @param [String] phone Phone number
+  #
+  # @return [Boolean]
   def self.gmobile?(phone)
     pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['gmobile']})\d{7}$/
     pattern.match phone
   end
 
+  # Check if a phone number is provided by Vietnamobile
+  #
+  # @param [String] phone Phone number
+  #
+  # @return [Boolean]
   def self.vietnamobile?(phone)
     pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['vietnamobile']})\d{7}$/
     pattern.match phone
   end
 
+  # Check if a phone number is provided by Mobifone
+  #
+  # @param [String] phone Phone number
+  #
+  # @return [Boolean]
   def self.mobifone?(phone)
     pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['mobifone']})\d{7}$/
     pattern.match phone
   end
 
+  # Check if a phone number is provided by Vinaphone
+  #
+  # @param [String] phone Phone number
+  #
+  # @return [Boolean]
   def self.vinaphone?(phone)
     pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['vinaphone']})\d{7}$/
     pattern.match phone
   end
 
+  # Check if a phone number is provided by Viettel
+  #
+  # @param [String] phone Phone number
+  #
+  # @return [Boolean]
   def self.viettel?(phone)
     pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['viettel']})\d{7}$/
     pattern.match phone
   end
 
+  # Return phone provider from phone number.
+  #
+  # @param [String] phone Phone number
+  #
+  # @return [String] Phone provider
+  #
+  # @example
+  #   CogiPhony.phone_to_provider('0988091097') # => Viettel
+  #   CogiPhony.phone_to_provider('0938091097') # => Mobifone
+  #   CogiPhony.phone_to_provider('0918091097') # => Vinaphone
+  #   CogiPhony.phone_to_provider('0928091097') # => Vietnamobile
+  #   CogiPhony.phone_to_provider('0998091097') # => Gmobile (Beeline)
+  #   CogiPhony.phone_to_provider('0837621351') # => Others
   def self.phone_to_provider(phone)
     return 'Viettel' if self.viettel? phone
     return 'Mobifone' if self.mobifone? phone
@@ -51,11 +93,23 @@ module CogiPhony
   end
 
   # Check if phone number is Vietnam mobile phone format
+  #
   # A phone is valid if:
   #   - Is not empty
   #   - Begin with +84|84|0 and
   #     - next number is 8|9 the length must be 8 (short number. Ex: 0933081090)
   #     - next number is 1, the length must be 9 (long number: Ex: 01214468866)
+  #
+  # @param [String] phone Phone number
+  #
+  # @return [Boolean] True if it is in Vietnam mobile phone format, otherwise False
+  #
+  # @example
+  #   CogiPhony.vn_mobile_phone?('0933081090')     # => true
+  #   CogiPhony.vn_mobile_phone?('84933081090')    # => true
+  #   CogiPhony.vn_mobile_phone?('+84933081090')   # => true
+  #   CogiPhony.vn_mobile_phone?('+14037089189')   # => false
+  #   CogiPhony.vn_mobile_phone?('84837621350')    # => false
   def self.vn_mobile_phone?(phone)
     return false if phone.nil? || phone.empty?
     return false if /\A(\+84|84|0)(((8|9)\d{8})|(1\d{9}))$/.match(phone).nil?
@@ -64,15 +118,19 @@ module CogiPhony
 
   # Format formats phone numbers according to the predominant format of a country.
   #
-  # Params:
-  #   format: global or vietnam. Default is global
+  # @param [String] phone Phone number
+  # @param [Hash] options An option hash
+  #   format: 'global' or 'vietnam'. Default is 'global'
   #
-  # Example:
-  #   CogiPhony.format('84933081090') ==> '+84 93 3081090'
-  #   CogiPhony.format('84933081090', format: 'global') ==> '+84 93 3081090'
-  #   CogiPhony.format('84837621350', format: 'global') ==> '+84 8 3762 1350'
-  #   CogiPhony.format('84933081090', format: 'vietnam') ==> '093 3081090'
-  #   CogiPhony.format('84837621350', format: 'vietnam') ==> '08 3762 1350'
+  # @return [String] Phone number formatted based on each country.
+  #
+  # @example
+  #   CogiPhony.format('84933081090', format: 'global')   # => '+84 93 3081090'
+  #   CogiPhony.format('84837621350', format: 'global')   # => '+84 8 3762 1350'
+  #   CogiPhony.format('84933081090')                     # =>'+84 93 3081090'
+  #   CogiPhony.format('14037089189')                     # => '+1 (403) 708-9189'
+  #   CogiPhony.format('84933081090', format: 'vietnam')  # => '093 3081090'
+  #   CogiPhony.format('84837621350', format: 'vietnam')  # => '08 3762 1350'
   def self.format(phone, options = {})
     return nil if phone.nil?
 
@@ -85,10 +143,18 @@ module CogiPhony
   # Format phone number into international format.
   # If missing country code, it will return the raw number.
   #
-  # Example:
-  #   CogiPhony.global_format('84933081090') ==> '+84 93 3081090'
-  #   CogiPhony.global_format('84837621350') ==> '+84 8 3762 1350'
-  #   CogiPhony.global_format('0933081090')  ==> '0933081090'
+  # @param [String] phone Phone number
+  #
+  # @return [String] Phone number in national format
+  #
+  # @example
+  #   CogiPhony.global_format('84933081090') # => '+84 93 3081090'
+  #   CogiPhony.global_format('84837621350') # => '+84 8 3762 1350'
+  #   CogiPhony.global_format('0933081090')  # => '0933081090'
+  #   CogiPhony.global_format('14037089189') # => '+1 (403) 708-9189'
+  #
+  # @example It return raw number if can not format
+  #   CogiPhony.national_format('+84837621350') # => '+84837621350'
   def self.global_format(phone)
     Phony.format(phone, format: :international) rescue phone
   end
@@ -96,18 +162,30 @@ module CogiPhony
   # Format phone number into national format.
   # If missing country code, it will return the raw number.
   #
-  # Example:
-  #   CogiPhony.national_format('84933081090') ==> '093 3081090'
-  #   CogiPhony.national_format('84837621350') ==> '08 3762 1350'
+  # @param [String] phone Phone number
+  #
+  # @return [String] Phone number in national format
+  #
+  # @example Format phone number into national format
+  #   CogiPhony.national_format('84933081090') # => '093 3081090'
+  #   CogiPhony.national_format('84837621350') # => '08 3762 1350'
+  #
+  # @example It return raw number if can not format
+  #   CogiPhony.national_format('+84837621350') # => '+84837621350'
   def self.national_format(phone)
     Phony.format(phone, format: :national) rescue phone
   end
 
-  # Return country code from phone number
+  # Extract country code from phone number.
   #
-  # Example:
-  #   CogiPhony.country_code_from_number('84933081090') ==> '84'
-  #   CogiPhony.country_code_from_number('0933081090')  ==> nil
+  # @param [String] phone Phone number
+  #
+  # @return [String] Country code
+  # @return [nil] if can not extract country code
+  #
+  # @example
+  #   CogiPhony.country_code_from_number('84933081090') # =>  '84'
+  #   CogiPhony.country_code_from_number('0933081090')  # =>  nil
   def self.country_code_from_number(phone)
     return nil unless Phony.plausible?(phone)
     Phony.split(Phony.normalize(phone)).first
