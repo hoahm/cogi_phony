@@ -427,4 +427,58 @@ describe CogiPhony do
       expect(CogiPhony.country_code_from_number('0933081090')).to be_nil
     end
   end
+
+  describe '#normalize' do
+    context 'Phone with country code' do
+      it 'remove all non-digit characters' do
+        expect(CogiPhony.normalize('+84 933081090 ')).to eq('+84933081090')
+        expect(CogiPhony.normalize('(+84)933081090 ')).to eq('+84933081090')
+        expect(CogiPhony.normalize('+8493-308-1090')).to eq('+84933081090')
+        expect(CogiPhony.normalize('+1 (403) 708-9189')).to eq('+14037089189')
+      end
+
+      it 'add plus sign before' do
+        expect(CogiPhony.normalize('84933081090 ')).to eq('+84933081090')
+      end
+    end
+
+    context 'Phone without country code' do
+      context 'vietnam format' do
+        it 'replace 0 with 84' do
+          expect(CogiPhony.normalize('0933081090', format: 'vietnam')).to eq('+84933081090')
+          expect(CogiPhony.normalize('0837621351', format: 'vietnam')).to eq('+84837621351')
+        end
+
+        it 'insert 84 before mobile phone number' do
+          expect(CogiPhony.normalize('933081090', format: 'vietnam')).to eq('+84933081090')
+          expect(CogiPhony.normalize('988091097', format: 'vietnam')).to eq('+84988091097')
+          expect(CogiPhony.normalize('1214468866', format: 'vietnam')).to eq('+841214468866')
+        end
+      end
+
+      context 'global format' do
+        context 'with default country code' do
+          it 'add country code before phone number' do
+            expect(CogiPhony.normalize('0933081090', default_country_code: '84')).to eq('+84933081090')
+            expect(CogiPhony.normalize('933081090', default_country_code: '84')).to eq('+84933081090')
+            expect(CogiPhony.normalize('093-308-1090', default_country_code: '84')).to eq('+84933081090')
+            expect(CogiPhony.normalize('(403) 708-9189', default_country_code: '1')).to eq('+14037089189')
+          end
+
+          it 'raise error if default country code is not valid' do
+            # expect(CogiPhony.normalize('0933081090', default_country_code: '111111')).to raise_error(CogiPhony::NormalizationError)
+            # expect(CogiPhony.normalize('0933081090', default_country_code: 'abcd')).to raise_error(CogiPhony::NormalizationError)
+          end
+        end
+
+        context 'without default country code' do
+          it 'raise error' do
+            # expect(CogiPhony.normalize('0933081090', format: 'global')).to raise_error(CogiPhony::NormalizationError)
+            # expect(CogiPhony.normalize('0933081090')).to raise_error(CogiPhony::NormalizationError)
+            # expect(CogiPhony.normalize('37621351', format: 'global')).to raise_error(CogiPhony::NormalizationError)
+          end
+        end
+      end
+    end
+  end
 end

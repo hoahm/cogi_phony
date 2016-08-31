@@ -1,3 +1,4 @@
+require 'cogi_phony/error'
 require 'cogi_phony/version'
 require 'phony'
 require 'yaml'
@@ -110,5 +111,66 @@ module CogiPhony
   def self.country_code_from_number(phone)
     return nil unless Phony.plausible?(phone)
     Phony.split(Phony.normalize(phone)).first
+  end
+
+  # Normalize phone numer to international format.
+  #
+  # @param [String] phone Phone number
+  # @param [Hash] options An option hash
+  #   format: 'global' or 'vietnam'. Default is 'global'
+  #   default_country_code: Default country code
+  #
+  # @return [String] A phone number formatted in international format.
+  #
+  # @raise [CogiPhony::NormalizationError] If can not normalize the given number.
+  #
+  # @example Normalize phone number with country code.
+  #   CogiPhony.normalize('+84 933081090 ')     # => '+84933081090'
+  #   CogiPhony.normalize('(+84)933081090 ')    # => '+84933081090'
+  #   CogiPhony.normalize('+8493-308-1090')     # => '+84933081090'
+  #   CogiPhony.normalize('84 933081090 ')      # => '+84933081090'
+  #   CogiPhony.normalize('+1 (403) 708-9189')  # => '+14037089189'
+  #
+  # @example Normalize phone number without country code, and in vietnam format
+  #   CogiPhony.normalize('0933081090', format: 'vietnam') # => '+84933081090'
+  #   CogiPhony.normalize('933081090', format: 'vietnam')  # => '+84933081090'
+  #   CogiPhony.normalize('1214468866', format: 'vietnam') # => '+841214468866'
+  #   CogiPhony.normalize('0837621351', format: 'vietnam') # => '+84837621351'
+  #
+  # @example Normalize phone number with default country code, and in global format
+  #   CogiPhony.normalize('0933081090', default_country_code: '84')   # => '+84933081090'
+  #   CogiPhony.normalize('933081090', default_country_code: '84')    # => '+84933081090'
+  #   CogiPhony.normalize('(403) 708-9189', default_country_code: '1' # => '+14037089189'
+  #
+  # @example Normalize phone number with invalid default country code, and in global format
+  #   CogiPhony.normalize('0933081090', default_country_code: '111111') # => raise error CogiPhony::NormalizationError
+  #   CogiPhony.normalize('0933081090', default_country_code: 'abcd')   # => raise error CogiPhony::NormalizationError
+  #
+  # @example Normalize phone number without default country code, and in global format
+  #   CogiPhony.normalize('0933081090', format: 'global') # => raise error CogiPhony::NormalizationError
+  #   CogiPhony.normalize('37621351', format: 'global')   # => raise error CogiPhony::NormalizationError
+  def self.normalize(phone, options = {})
+    return nil if phone.nil?
+
+    original_phone = phone.dup
+    phone = phone.gsub(/\D/, '') # remove string character
+
+    unless Phony.plausible?(phone) # Do not include country code
+      if options[:format] == 'vietnam'
+        phone = phone.gsub(/\A0(.*?)/, '84\1') # replace 0 with 84
+        phone = "84#{phone}" if /\A(8|9)\d{8}$|\A1\d{9}$/.match phone # insert 84 before phone number
+      else # if options[:format] == 'global'
+        default_country_code = options[:default_country_code]
+        if default_country_code && Phony.plausible?("#{default_country_code}#{phone.gsub(/^0/, '')}")
+          phone = "#{default_country_code}#{phone.gsub(/^0/, '')}" # add country code before phone number
+        else
+          # TODO: handle if can not normalize
+          raise CogiPhony::NormalizationError
+        end
+      end
+    end
+
+    phone = "+#{phone}" # add plus sign before phone number
+    phone
   end
 end
