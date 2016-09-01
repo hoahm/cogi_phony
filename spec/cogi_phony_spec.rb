@@ -485,4 +485,51 @@ describe CogiPhony do
       end
     end
   end
+
+  describe '#validate?' do
+    context 'Phone with country code' do
+      it 'vietnam mobile phone with plus sign' do
+        expect(CogiPhony.validate?('+84933081090')).to be_truthy
+      end
+
+      it 'vietnam mobile phone without plus sign' do
+        expect(CogiPhony.validate?('84933081090')).to be_truthy
+      end
+
+      it 'vietnam phone with plus sign' do
+        expect(CogiPhony.validate?('+84837621350')).to be_truthy
+      end
+
+      it 'other country mobile phone with plus sign' do
+        expect(CogiPhony.validate?('+14037089189')).to be_truthy
+      end
+
+      it 'other country mobile phone without plus sign' do
+        expect(CogiPhony.validate?('14037089189')).to be_truthy
+      end
+
+      it 'phone formatted in international format' do
+        expect(CogiPhony.validate?('+1 (403) 708-9189')).to be_truthy
+        expect(CogiPhony.validate?('(408) 974-2042')).to be_truthy
+      end
+
+      it 'phone formatted in national format' do
+        expect(CogiPhony.validate?('093 3081090')).to be_truthy
+      end
+    end
+
+    context 'Phone without country code' do
+      it 'vietnam mobile phone' do
+        expect(CogiPhony.validate?('0933081090')).to be_truthy
+      end
+
+      it 'vietnam phone' do
+        expect(CogiPhony.validate?('0837621350')).to be_truthy
+      end
+
+      it 'vietnam phone without region code' do
+        expect(CogiPhony.validate?('37621350')).to be_truthy
+      end
+    end
+  end
 end

@@ -251,4 +251,18 @@ module CogiPhony
     phone = "+#{phone}" # add plus sign before phone number
     phone
   end
+
+  # Check if a string is a valid phone number.
+  # Reference: http://www.regexr.com/38pvb
+  #
+  # @param [String] phone Phone number
+  #
+  # @return [Boolean] True if it is in a valid phone number, otherwise False
+  def self.validate?(phone)
+    return false if phone.nil?
+
+    # pattern = /\A((\+)?\d{1,6}|0)\d{7,10}$/
+    pattern = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/
+    pattern.match phone
+  end
 end
