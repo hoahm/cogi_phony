@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.email          = 'nobi.hoa@gmail.com'
   spec.description    = 'This gem provide you library to validate, parsing and format phone number, detect phone network in Vietnam.'
   spec.summary        = 'This gem provide you library to validate, parsing and format phone number, detect phone network in Vietnam.'
-  spec.homepage       = 'http://rubygems.org/gems/cogi_phony'
+  spec.homepage       = 'https://github.com/hoahm/cogi_phony'
   spec.license        = 'MIT'
 
   spec.files          =  Dir['Rakefile', '{bin,lib,man,test,spec}/**/*', 'README*', 'LICENSE*'] & `git ls-files -z`.split("\0")
@@ -24,4 +24,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 2.0'
 
   spec.add_dependency 'phony', '~> 2.15'
+
+  spec.rdoc_options << '--title' << 'Rake -- Ruby Make' <<
+    '--main' << 'README' <<
+    '--line-numbers'
 end
