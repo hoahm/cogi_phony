@@ -1,4 +1,4 @@
-# PhonyRails [![Build Status](https://travis-ci.org/hoahm/cogi_phony.svg?branch=master)](https://travis-ci.org/hoahm/cogi_phony) [![Coverage Status](https://coveralls.io/repos/hoahm/cogi_phony/badge.svg)](https://coveralls.io/r/hoahm/cogi_phony) [![GitHub issues](https://img.shields.io/github/issues/hoahm/cogi_phony.svg)](https://github.com/hoahm/cogi_phony/issues)
+# PhonyRails [![Build Status](https://travis-ci.org/hoahm/cogi_phony.svg?branch=master)](https://travis-ci.org/hoahm/cogi_phony) [![Coverage Status](https://coveralls.io/repos/github/hoahm/cogi_phony/badge.svg)](https://coveralls.io/github/hoahm/cogi_phony) [![GitHub issues](https://img.shields.io/github/issues/hoahm/cogi_phony.svg)](https://github.com/hoahm/cogi_phony/issues)
 
 This gem provide you library to validate, parsing, format and normalize phone number, detect phone network in Vietnam.
 
