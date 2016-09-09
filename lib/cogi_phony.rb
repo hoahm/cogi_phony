@@ -248,6 +248,7 @@ module CogiPhony
       end
     end
 
+    phone = phone.gsub(/\A0(.*?)/, '\1') if phone.start_with?('084')
     phone = "+#{phone}" # add plus sign before phone number
     phone
   end

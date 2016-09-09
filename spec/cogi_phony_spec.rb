@@ -439,6 +439,8 @@ describe CogiPhony do
         expect(CogiPhony.normalize('(+84)933081090 ')).to eq('+84933081090')
         expect(CogiPhony.normalize('+8493-308-1090')).to eq('+84933081090')
         expect(CogiPhony.normalize('+1 (403) 708-9189')).to eq('+14037089189')
+        expect(CogiPhony.normalize('084933081090')).to eq('+84933081090')
+        expect(CogiPhony.normalize('84933081090')).to eq('+84933081090')
       end
 
       it 'add plus sign before' do
