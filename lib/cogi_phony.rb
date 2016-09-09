@@ -26,7 +26,7 @@ module CogiPhony
   #
   # @return [Boolean]
   def self.gmobile?(phone)
-    pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['gmobile']})\d{7}$/
+    pattern = /\A(\+84|084|84|0)(#{mobile_networks_hash['vi']['gmobile']})\d{7}$/
     pattern.match phone
   end
 
@@ -36,7 +36,7 @@ module CogiPhony
   #
   # @return [Boolean]
   def self.vietnamobile?(phone)
-    pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['vietnamobile']})\d{7}$/
+    pattern = /\A(\+84|084|84|0)(#{mobile_networks_hash['vi']['vietnamobile']})\d{7}$/
     pattern.match phone
   end
 
@@ -46,7 +46,7 @@ module CogiPhony
   #
   # @return [Boolean]
   def self.mobifone?(phone)
-    pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['mobifone']})\d{7}$/
+    pattern = /\A(\+84|084|84|0)(#{mobile_networks_hash['vi']['mobifone']})\d{7}$/
     pattern.match phone
   end
 
@@ -56,7 +56,7 @@ module CogiPhony
   #
   # @return [Boolean]
   def self.vinaphone?(phone)
-    pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['vinaphone']})\d{7}$/
+    pattern = /\A(\+84|084|84|0)(#{mobile_networks_hash['vi']['vinaphone']})\d{7}$/
     pattern.match phone
   end
 
@@ -66,7 +66,7 @@ module CogiPhony
   #
   # @return [Boolean]
   def self.viettel?(phone)
-    pattern = /\A(\+84|84|0)(#{mobile_networks_hash['vi']['viettel']})\d{7}$/
+    pattern = /\A(\+84|084|84|0)(#{mobile_networks_hash['vi']['viettel']})\d{7}$/
     pattern.match phone
   end
 
@@ -112,7 +112,7 @@ module CogiPhony
   #   CogiPhony.vn_mobile_phone?('84837621350')    # => false
   def self.vn_mobile_phone?(phone)
     return false if phone.nil? || phone.empty?
-    return false if /\A(\+84|84|0)((9\d{8})|(88\d{7})|(1\d{9}))$/.match(phone).nil?
+    return false if /\A(\+84|084|84|0)((9\d{8})|(88\d{7})|(1\d{9}))$/.match(phone).nil?
     true
   end
 
