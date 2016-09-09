@@ -116,6 +116,23 @@ module CogiPhony
     true
   end
 
+  # Check if a phone number is in Vietnam
+  #
+  # @param [String] phone Phone number
+  #
+  # @return [Boolean] True if phone in vietnam, otherwise False
+  #
+  # @example
+  #   CogiPhony.vn_phone?('+84933081090') # => True
+  #   CogiPhony.vn_phone?('084933081090') # => True
+  #   CogiPhony.vn_phone?('84933081090')  # => True
+  #   CogiPhony.vn_phone?('0933081090')   # => True
+  #   CogiPhony.vn_phone?('+14037089189') # => False
+  def self.vn_phone?(phone)
+    return false unless /\A(\+84|84|084|0)(\d{8}|\d{9})$/.match phone
+    true
+  end
+
   # Format formats phone numbers according to the predominant format of a country.
   #
   # @param [String] phone Phone number

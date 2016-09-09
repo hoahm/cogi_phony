@@ -359,6 +359,35 @@ describe CogiPhony do
     end
   end
 
+  describe '#vn_phone?' do
+    context 'Vietnam phone number' do
+      [
+        '84933081090',
+        '084933081090',
+        '+84933081090',
+        '0933081090',
+        '064893907',
+        '0837621350',
+        '84837621350'
+      ].each do |v|
+        it "#{v} is vietnam phone number" do
+          expect(CogiPhony.vn_phone?(v)).to be_true
+        end
+      end
+    end
+
+    context 'International phone number' do
+      [
+        '14037089189',
+        '+14037089189'
+      ].each do |v|
+        it "#{v} is not vietnam phone number" do
+          expect(CogiPhony.vn_phone?(v)).to be_false
+        end
+      end
+    end
+  end
+
   describe '#global_format' do
     context 'with country code' do
       it 'format vietnam mobile phone number without plus sign' do
